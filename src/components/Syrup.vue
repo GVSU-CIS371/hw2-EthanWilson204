@@ -1,5 +1,5 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="{ '--texture-color': beverageStore.currentSyrup.color }"></div>
 </template>
 
 <script setup lang="ts"></script>
