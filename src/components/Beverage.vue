@@ -7,7 +7,7 @@
         <Creamer v-if="beverageStore.currentCreamer.id !== 'c1'"/>
       </template>
       <template v-slot:mid>
-        <Syrup v-if="beverageStore.currentCreamer.id !== 's1'"/>
+        <Syrup v-if="beverageStore.currentSyrup.id !== 's1'"/>
       </template>
       <template v-slot:bottom>
         <Base />

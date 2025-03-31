@@ -2,7 +2,9 @@
   <div class="syrup" :style="{ '--texture-color': beverageStore.currentSyrup.color }"></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useBeverageStore } from "../stores/beverageStore"
+const beverageStore = useBeverageStore();</script>
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);
