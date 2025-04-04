@@ -32,6 +32,14 @@ export const useBeverageStore = defineStore("BeverageStore", {
         syrup: this.currentSyrup,
         creamer: this.currentCreamer
       }
+      this.beverages.push({
+        name: this.currentName,
+        id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
+        temp: this.currentTemp,
+        base: this.currentBase,
+        syrup: this.currentSyrup,
+        creamer: this.currentCreamer
+      })
     },
     showBeverage() {
       // use the id to get the beverage object
