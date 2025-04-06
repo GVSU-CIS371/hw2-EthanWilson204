@@ -66,6 +66,7 @@
       </li>
     </ul>
     
+    
     <input type="text" placeholder="Beverage Name" v-model="beverageStore.currentName"/>
     <button @click="beverageStore.makeBeverage()">🍺 Make Beverage</button>
 

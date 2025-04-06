@@ -20,8 +20,6 @@ export const useBeverageStore = defineStore("BeverageStore", {
     currentBeverage: null as BeverageType | null,
   }),
 
-
-
   actions: {
     makeBeverage() {
       this.currentBeverage = {
@@ -30,21 +28,23 @@ export const useBeverageStore = defineStore("BeverageStore", {
         temp: this.currentTemp,
         base: this.currentBase,
         syrup: this.currentSyrup,
-        creamer: this.currentCreamer
-      }
-      this.beverages.push({
+        creamer: this.currentCreamer,
+      };
+      this.bevarages.push({
         name: this.currentName,
         id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
         temp: this.currentTemp,
         base: this.currentBase,
         syrup: this.currentSyrup,
-        creamer: this.currentCreamer
-      })
+        creamer: this.currentCreamer,
+      });
+      console.log(`currentBeverage${this.currentBeverage}`);
+
+      console.log(`beverages ${this.bevarages}`);
     },
     showBeverage() {
       // use the id to get the beverage object
       // this.currentBase = this.currentBeverage?.base
-
     },
   },
   persist: true,
