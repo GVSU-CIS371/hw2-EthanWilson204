@@ -22,28 +22,28 @@ export const useBeverageStore = defineStore("BeverageStore", {
 
   actions: {
     makeBeverage() {
-      this.currentBeverage = {
-        name: this.currentName,
-        id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
-        temp: this.currentTemp,
-        base: this.currentBase,
-        syrup: this.currentSyrup,
-        creamer: this.currentCreamer,
-      };
-      this.beverages.push({
-        name: this.currentName,
-        id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
-        temp: this.currentTemp,
-        base: this.currentBase,
-        syrup: this.currentSyrup,
-        creamer: this.currentCreamer,
-      });
+        this.currentBeverage = {
+          name: this.currentName,
+          id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
+          temp: this.currentTemp,
+          base: this.currentBase,
+          syrup: this.currentSyrup,
+          creamer: this.currentCreamer,
+        };
+        this.beverages.push({
+          name: this.currentName,
+          id: `${this.currentTemp}-${this.currentBase.id}-${this.currentCreamer.id}-${this.currentSyrup.id}`,
+          temp: this.currentTemp,
+          base: this.currentBase,
+          syrup: this.currentSyrup,
+          creamer: this.currentCreamer,
+        });
     },
     showBeverage() {
-      this.currentTemp = this.currentBeverage?.temp;
-      this.currentBase = this.currentBeverage?.base;
-      this.currentSyrup = this.currentBeverage?.syrup;
-      this.currentCreamer = this.currentBeverage?.creamer;
+      this.currentTemp = this.currentBeverage?.temp || this.currentTemp;
+      this.currentBase = this.currentBeverage?.base || this.currentBase;
+      this.currentSyrup = this.currentBeverage?.syrup || this.currentSyrup;
+      this.currentCreamer = this.currentBeverage?.creamer || this.currentCreamer;
     },
   },
   persist: true,
