@@ -17,8 +17,82 @@
         </template>
       </li>
     </ul>
-    <input type="text" placeholder="Beverage Name" />
-    <button>🍺 Make Beverage</button>
+    <ul>
+      <li>
+        <template v-for="base in beverageStore.bases" :key="base.id">
+          <label>
+            <input
+              type="radio"
+              name="bases"
+              :id="`r${base.id}`"
+              :value="base"
+              v-model="beverageStore.currentBase"
+            />
+            {{ base.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="creamer in beverageStore.creamers" :key="creamer.id">
+          <label>
+            <input
+              type="radio"
+              name="creamers"
+              :id="`r${creamer.id}`"
+              :value="creamer"
+              v-model="beverageStore.currentCreamer"
+            />
+            {{ creamer.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="syrup in beverageStore.syrups" :key="syrup.id">
+          <label>
+            <input
+              type="radio"
+              name="syrups"
+              :id="`r${syrup.id}`"
+              :value="syrup"
+              v-model="beverageStore.currentSyrup"
+            />
+            {{ syrup.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+
+    <input
+      type="text"
+      placeholder="Beverage Name"
+      v-model="beverageStore.currentName"
+    />
+    <button @click="beverageStore.makeBeverage()">🍺 Make Beverage</button>
+
+    <ul>
+      <li>
+        <template
+          v-for="beverage in beverageStore.beverages"
+          :key="beverage.id"
+        >
+          <label>
+            <input
+              type="radio"
+              name="beverages"
+              :id="`r${beverage.id}`"
+              :value="beverage"
+              v-model="beverageStore.currentBeverage"
+              @click="beverageStore.showBeverage()"
+            />
+            {{ beverage.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
   </div>
   <div id="beverage-container" style="margin-top: 20px"></div>
 </template>
