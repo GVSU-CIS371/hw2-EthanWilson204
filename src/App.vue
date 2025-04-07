@@ -65,10 +65,34 @@
         </template>
       </li>
     </ul>
-    
 
-    <input type="text" placeholder="Beverage Name" v-model="beverageStore.currentName"/>
+    <input
+      type="text"
+      placeholder="Beverage Name"
+      v-model="beverageStore.currentName"
+    />
     <button @click="beverageStore.makeBeverage()">🍺 Make Beverage</button>
+
+    <ul>
+      <li>
+        <template
+          v-for="beverage in beverageStore.beverages"
+          :key="beverage.id"
+        >
+          <label>
+            <input
+              type="radio"
+              name="beverages"
+              :id="`r${beverage.id}`"
+              :value="beverage"
+              v-model="beverageStore.currentBeverage"
+              @click="beverageStore.showBeverage()"
+            />
+            {{ beverage.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
   </div>
   <div id="beverage-container" style="margin-top: 20px"></div>
 </template>
